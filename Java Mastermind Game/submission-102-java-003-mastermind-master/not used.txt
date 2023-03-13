@@ -1,0 +1,160 @@
+package za.co.wethinkcode.mastermind;
+
+import java.io.InputStream;
+import java.util.Scanner;
+
+public class Player {
+    private String userInput;
+    private final Scanner inputScanner;
+
+    public Player(){
+        this.inputScanner = new Scanner(System.in);
+    }
+
+    public Player(InputStream inputStream){
+        this.inputScanner = new Scanner(inputStream);
+    }
+
+    /**
+     * Gets a guess from user via text console.
+     * This must prompt the user to re-enter a guess until a valid 4-digit string is entered, or until the user enters `exit` or `quit`.
+     *
+     * @return the value entered by the user
+     */
+    public String getGuess(){
+        boolean validInput = true;
+        do {
+            System.out.println("Input 4 digit code: ");
+            userInput = this.inputScanner.nextLine();
+            if(userInput.length() != 4 ) {
+                System.out.println("Please enter exactly 4 digits (each from 1 to 8).");
+            }
+                try{
+                    int num = Integer.parseInt(userInput);
+                    validInput = (num >= 1 && num <= 8);
+                } catch (NumberFormatException numberFormatException){
+                    validInput = false;
+                }
+        } while (userInput.length() != 4 && !validInput);
+
+        return userInput;
+    }
+    public void vv() {
+        boolean validInput = true;
+        do {
+            System.out.println("Input 4 digit code: ");
+            userInput = this.inputScanner.nextLine();
+            if (userInput.length() != 4 && !validInput) {
+                System.out.println("Please enter exactly 4 digits (each from 1 to 8).");
+            }
+                try {
+                    for (String number : userInput.split("")) {
+                        int num = Integer.parseInt(number);
+
+                    validInput = (num >= 1 && num <= 8);}
+                } catch (NumberFormatException numberFormatException) {
+                    validInput = false;
+                }
+        } while (userInput.length() != 4 && !validInput);
+    }
+
+
+
+    public static void main(String[] args){
+        Player game = new Player();
+        game.vv();
+    }
+//    public static boolean isInteger(String str) {
+//        if (str == null) {
+//            return false;
+//        }
+//        int length = str.length();
+//        if (length == 0) {
+//            return false;
+//        }
+//        int i = 0;
+//        if (str.charAt(0) == '-') {
+//            if (length == 1) {
+//                return false;
+//            }
+//            i = 1;
+//        }
+//        for (; i < length; i++) {
+//            char c = str.charAt(i);
+//            if (c < '0' || c > '9') {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+
+}
+
+
+
+    //    public static boolean isInteger(String str) {
+//        if (str == null) {
+//            return false;
+//        }
+//        int length = str.length();
+//        if (length == 0) {
+//            return false;
+//        }
+//        int i = 0;
+//        if (str.charAt(0) == '-') {
+//            if (length == 1) {
+//                return false;
+//            }
+//            i = 1;
+//        }
+//        for (; i < length; i++) {
+//            char c = str.charAt(i);
+//            if (c < '0' || c > '9') {
+//                return false;
+//            }
+//        }
+//        return true;
+//    }
+
+
+List<Boolean> listOutcome = new ArrayList<Boolean>();
+        for (String guessNum : guessList) & for( String codeNum : codeList){
+                System.out.println("guess" + guessNum + "code" + codeNum);
+            if (guessNum == codeNum){
+                listOutcome.add(true);
+
+            } {
+                listOutcome.add(false);
+                }
+
+
+
+
+        }
+        System.out.println(listOutcome);
+
+
+//        if (listCode.contains(listGuess.get(0))) {
+//            System.out.println("yes ind0");
+//        }
+//        if (listCode.contains(listGuess.get(1))) {
+//            System.out.println("yes ind1");
+//        }
+//        if (listCode.contains(listGuess.get(2))) {
+//            System.out.println("yes ind2");
+//        }
+//        if (listCode.contains(listGuess.get(3))) {
+//            System.out.println("yes ind3");
+//        }
+
+//        boolean codeIndex0 = listCode.contains(listGuess.get(0));
+//        listCorrectPosition.add((codeIndex0));
+//        boolean codeIndex1 = listCode.contains(listGuess.get(1));
+//        listCorrectPosition.add((codeIndex1));
+//        boolean codeIndex2 = listCode.contains(listGuess.get(2));
+//        listCorrectPosition.add((codeIndex2));
+//        boolean codeIndex3 = listCode.contains(listGuess.get(3));
+//        System.out.println(listGuess.get(3) + "lasty");
+//        listCorrectPosition.add((codeIndex3));
+
